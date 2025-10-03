@@ -2,6 +2,15 @@
   "name": "cats-stuff",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "^24"
+  },
+  "contributors": [
+    {
+      "name": "Jolanta Makuła",
+      "email": "jolantamakula@gmail.com"
+    }
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
