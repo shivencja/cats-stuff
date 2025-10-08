@@ -1,6 +1,6 @@
 "use client";
 
-import { useSwitchLang } from "@/i18n/Provider";
+import { useSwitchLang } from "@/providers/I18nProvider";
 import { Button } from "@mui/material";
 
 export function LanguageSwitcher() {

@@ -8,7 +8,7 @@ import {
   useState,
   useMemo,
 } from "react";
-import i18n from "./config";
+import i18n from "../i18n/config";
 
 export const AVAILABLE_LANGS = ["en", "pl"] as const;
 export type Lang = (typeof AVAILABLE_LANGS)[number];
@@ -46,16 +46,12 @@ function useStoredLang(defaultLang: Lang = "en") {
 export default function I18nProvider({ children }: PropsWithChildren) {
   const { lang, setLang } = useStoredLang("en");
 
-  useEffect(() => {
-    i18n.locale = lang;
-  }, [lang]);
+  i18n.locale = lang;
 
   const contextValue = useMemo(() => ({ lang, setLang }), [lang, setLang]);
 
   return (
-    <I18nContext.Provider value={contextValue}>
-      <div key={lang}>{children}</div>
-    </I18nContext.Provider>
+    <I18nContext.Provider value={contextValue}>{children}</I18nContext.Provider>
   );
 }
 
