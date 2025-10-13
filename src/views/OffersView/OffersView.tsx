@@ -30,7 +30,7 @@ export default function OffersView() {
   return (
     <Box sx={{ p: 4 }}>
       <Typography variant="h4" gutterBottom>
-        {t("title")}
+        {t("offersView.title")}
       </Typography>
       <LanguageSwitcher />
 

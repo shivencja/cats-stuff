@@ -1,0 +1,30 @@
+{
+  "page": {
+    "title": "%{title} - Cat's stuff"
+  },
+  "offersView": {
+    "title": "Our offers",
+    "empty": "No offers available"
+  },
+  "notFoundView": {
+    "title": "Not found"
+  },
+  "errorView": {
+    "title": "Something went wrong!"
+  },
+  "globalErrorView": {
+    "title": "An unexpected error occurred"
+  },
+  "buttons": {
+    "backToMainPage": "Back to main page",
+    "tryAgain": "Try again"
+  },
+  "components": {
+    "languageSwitcher": {
+      "label": "Language selection",
+      "en": "English",
+      "pl": "Polish"
+    }
+  },
+  "errors": {}
+}

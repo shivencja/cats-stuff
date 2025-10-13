@@ -1,0 +1,30 @@
+{
+  "page": {
+    "title": "%{title} - Cat's stuff"
+  },
+  "offersView": {
+    "title": "Nasze oferty",
+    "empty": "Brak dostępnych ofert"
+  },
+  "notFoundView": {
+    "title": "Nie znaleziono"
+  },
+  "errorView": {
+    "title": "Coś poszło nie tak!"
+  },
+  "globalErrorView": {
+    "title": "Wystąpił nieoczekiwany błąd"
+  },
+  "buttons": {
+    "backToMainPage": "Powrót na stronę główną",
+    "tryAgain": "Spróbuj ponownie"
+  },
+  "components": {
+    "languageSwitcher": {
+      "label": "Wybór języka",
+      "en": "Angielski",
+      "pl": "Polski"
+    }
+  },
+  "errors": {}
+}
