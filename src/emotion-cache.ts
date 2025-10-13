@@ -2,6 +2,6 @@
 
 import createCache from "@emotion/cache";
 
-export default function createEmotionCache() {
-  return createCache({ key: "mui", prepend: true });
+export default function createEmotionCache(nonce?: string) {
+  return createCache({ key: "mui", prepend: true, nonce });
 }

@@ -3,15 +3,17 @@
 import * as React from "react";
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import theme from "../theme";
+import theme from "../styles/theme";
 import createEmotionCache from "../emotion-cache";
 
 export default function ThemeRegistry({
   children,
+  nonce,
 }: {
   children: React.ReactNode;
+  nonce?: string;
 }) {
-  const [cache] = React.useState(() => createEmotionCache());
+  const cache = createEmotionCache(nonce);
   return (
     <CacheProvider value={cache}>
       <ThemeProvider theme={theme}>
