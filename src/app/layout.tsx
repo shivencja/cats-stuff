@@ -4,6 +4,8 @@ import I18nProvider from "../providers/I18nProvider";
 import "./globals.css";
 import { AppProvider } from "@/providers/AppProvider";
 import { getNonce } from "@/server/nonce";
+import AuthProvider from "@/providers/AuthProvider";
+import Navbar from "@/components/Navbar/Navbar";
 
 export const metadata: Metadata = {
   title: "Cat's Stuff",
@@ -19,11 +21,16 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <AppProvider>
-          <ThemeRegistry nonce={nonce}>
-            <I18nProvider>{children}</I18nProvider>
-          </ThemeRegistry>
-        </AppProvider>
+        <AuthProvider>
+          <AppProvider>
+            <ThemeRegistry nonce={nonce}>
+              <I18nProvider>
+                <Navbar />
+                <main>{children}</main>
+              </I18nProvider>
+            </ThemeRegistry>
+          </AppProvider>
+        </AuthProvider>
       </body>
     </html>
   );
