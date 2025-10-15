@@ -1,6 +1,5 @@
 import { api } from "@/lib/api";
-import { Offer } from "@/data/offers";
-
+import { Offer } from "@/types/offers";
 /** Fetch offers */
 export async function getOffers() {
   return api.get<Offer[]>("/offers");

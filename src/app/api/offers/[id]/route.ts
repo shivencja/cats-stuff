@@ -5,12 +5,11 @@ import { Offer } from "@/types/offers";
 export async function GET(
   request: Request,
   context: {
-    params: { id: string };
+    params: Promise<{ id: string }>;
   }
 ) {
+  const { id } = await context.params;
   try {
-    const { id } = context.params;
-
     const allOffers = await kv.get<Offer[]>("offers");
 
     if (!allOffers) {
@@ -25,7 +24,7 @@ export async function GET(
 
     return NextResponse.json(offer);
   } catch (error) {
-    console.error(`Failed to fetch offer ${context.params.id}:`, error);
+    console.error(`Failed to fetch offer ${id}:`, error);
     return NextResponse.json(
       { message: "Internal Server Error" },
       { status: 500 }

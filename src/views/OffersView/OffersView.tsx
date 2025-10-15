@@ -1,7 +1,7 @@
 "use client";
 
 import { LanguageSwitcher } from "@/components/LanguageSwitcher/LanguageSwitcher";
-import { Offer } from "@/data/offers";
+import { Offer } from "@/types/offers";
 import { useI18n } from "@/hooks/i18n";
 import { useOffers } from "@/queries/offers/hooks";
 import {
