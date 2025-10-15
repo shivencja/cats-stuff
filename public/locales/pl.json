@@ -26,5 +26,12 @@
       "pl": "Polski"
     }
   },
-  "errors": {}
+  "errors": {
+    "apiErrors": {
+      "UNKNOWN_API_ERROR": "Nieznany błąd API",
+      "NO_OFFERS_FOUND": "Brak ofert",
+      "OFFER_NOT_FOUND": "Nie znaleziono oferty",
+      "INTERNAL_SERVER_ERROR": "Wewnętrzny błąd serwera"
+    }
+  }
 }

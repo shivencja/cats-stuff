@@ -1,6 +1,7 @@
 import { kv } from "@vercel/kv";
 import { NextResponse } from "next/server";
 import { Offer } from "@/types/offers";
+import { ApiErrorKey } from "@/types/errors";
 
 export async function GET() {
   try {
@@ -9,7 +10,13 @@ export async function GET() {
   } catch (error) {
     console.error("Failed to fetch offers:", error);
     return NextResponse.json(
-      { message: "Internal Server Error" },
+      {
+        errors: [
+          {
+            key: ApiErrorKey.INTERNAL_SERVER_ERROR,
+          },
+        ],
+      },
       { status: 500 }
     );
   }

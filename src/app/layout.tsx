@@ -6,6 +6,8 @@ import { AppProvider } from "@/providers/AppProvider";
 import { getNonce } from "@/server/nonce";
 import AuthProvider from "@/providers/AuthProvider";
 import Navbar from "@/components/Navbar/Navbar";
+import NotificationProvider from "@/providers/NotificationProvider";
+import QueryProvider from "@/providers/QueryProvider";
 
 export const metadata: Metadata = {
   title: "Cat's Stuff",
@@ -25,8 +27,12 @@ export default async function RootLayout({
           <AppProvider>
             <ThemeRegistry nonce={nonce}>
               <I18nProvider>
-                <Navbar />
-                <main>{children}</main>
+                <NotificationProvider>
+                  <QueryProvider>
+                    <Navbar />
+                    <main>{children}</main>
+                  </QueryProvider>
+                </NotificationProvider>
               </I18nProvider>
             </ThemeRegistry>
           </AppProvider>
