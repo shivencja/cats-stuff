@@ -1,4 +1,7 @@
 {
+  "commons": {
+    "localizedCurrency": "zł"
+  },
   "page": {
     "title": "%{title} - Cat's stuff"
   },

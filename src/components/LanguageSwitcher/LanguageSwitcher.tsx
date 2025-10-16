@@ -1,7 +1,8 @@
 "use client";
 
 import { useI18n } from "@/hooks/i18n";
-import { Lang, useSwitchLang } from "@/providers/I18nProvider";
+import { useSwitchLang } from "@/providers/I18nProvider";
+import { Lang } from "@/types/langs";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { useMemo } from "react";
 

@@ -13,6 +13,8 @@ import {
   CircularProgress,
   Alert,
 } from "@mui/material";
+import Translated from "@/components/Translated/Translated";
+import Price from "@/components/Price/Price";
 
 export default function OffersView() {
   const { t } = useI18n();
@@ -39,8 +41,8 @@ export default function OffersView() {
           {offers.map((offer: Offer) => (
             <ListItem key={offer.id}>
               <ListItemText
-                primary={offer.name}
-                secondary={`Cena: ${(offer.price / 100).toFixed(2)} zł`}
+                primary={<Translated text={offer.name} />}
+                secondary={<Price value={offer.price} />}
               />
             </ListItem>
           ))}

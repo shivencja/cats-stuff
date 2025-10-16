@@ -11,9 +11,7 @@ import {
 } from "react";
 import i18n from "../i18n/config";
 import { Loader } from "@/components/Loader/Loader";
-
-export const AVAILABLE_LANGS = ["en", "pl"] as const;
-export type Lang = (typeof AVAILABLE_LANGS)[number];
+import { AVAILABLE_LANGS, Lang } from "@/types/langs";
 
 const LANG_STORAGE_KEY = "lang";
 

@@ -1,30 +1,36 @@
 // command: ts-node src/scripts/seed-db.ts
 
-import { Offer } from "@/types/offers";
 import { createClient } from "@vercel/kv";
 import dotenv from "dotenv";
 dotenv.config({ path: ".env.local" });
 
-export const offers: Offer[] = [
+export const offers = [
   {
     id: 1,
-    name: "Cat Wand with Feather",
-    description:
-      "An interactive wand that will provide your cat with hours of fun",
-    price: 1999,
+    name: { en: "Cat Wand with Feather", pl: "Wędka dla kota z piórkiem" },
+    description: {
+      en: "An interactive wand that will provide your cat with hours of fun",
+      pl: "Interaktywna wędka, która zapewni Twojemu kotu godziny zabawy",
+    },
+    price: { en: 199, pl: 1999 },
   },
   {
     id: 2,
-    name: "Elegant Ceramic Bowl",
-    description: "A stylish and easy-to-clean bowl for water or food",
-    price: 4950,
+    name: { en: "Elegant Ceramic Bowl", pl: "Elegancka ceramiczna miska" },
+    description: {
+      en: "A stylish and easy-to-clean bowl for water or food",
+      pl: "Stylowa i łatwa do czyszczenia miska na wodę lub jedzenie",
+    },
+    price: { en: 199, pl: 1999 },
   },
   {
     id: 3,
-    name: "Scratching Post with Cave",
-    description:
-      "A sturdy scratching post with a cozy hideaway, perfect for sleeping and claw sharpening",
-    price: 12900,
+    name: { en: "Scratching Post with Cave", pl: "Drapak z jaskinią" },
+    description: {
+      en: "A sturdy scratching post with a cozy hideaway, perfect for sleeping and claw sharpening",
+      pl: "Solidny drapak z przytulną jaskinią, idealny do spania i ostrzenia pazurów",
+    },
+    price: { en: 199, pl: 1999 },
   },
 ];
 
