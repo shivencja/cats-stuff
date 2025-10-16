@@ -1,3 +1,4 @@
+import { UserRole } from "@/types/users";
 import { kv } from "@vercel/kv";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
@@ -28,6 +29,7 @@ export async function POST(request: Request) {
       id: crypto.randomUUID(),
       email: email,
       hashedPassword: hashedPassword,
+      role: UserRole.USER,
     };
 
     await kv.set(`user:${email}`, JSON.stringify(newUser));

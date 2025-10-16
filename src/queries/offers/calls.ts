@@ -1,11 +1,23 @@
 import { api } from "@/lib/api";
-import { Offer } from "@/types/offers";
+import { OfferDTO } from "@/types/offers";
+import { UserDTO } from "@/types/users";
+
 /** Fetch offers */
 export async function getOffers() {
-  return api.get<Offer[]>("/offers");
+  return api.get<OfferDTO[]>("/offers");
 }
 
 /** Fetch offer */
 export async function getOffer(offerId: number) {
-  return api.get<Offer>(`/offers/${offerId}`);
+  return api.get<OfferDTO>(`/offers/${offerId}`);
+}
+
+/** Fetch users */
+export async function getUsers() {
+  return api.get<UserDTO[]>("/users");
+}
+
+/** Fetch user */
+export async function getUser(userId: number) {
+  return api.get<UserDTO>(`/users/${userId}`);
 }

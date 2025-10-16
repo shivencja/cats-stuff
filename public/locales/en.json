@@ -31,6 +31,7 @@
   },
   "errors": {
     "apiErrors": {
+      "UNAUTHORIZED": "Unauthorized",
       "UNKNOWN_API_ERROR": "Unknown API error",
       "NO_OFFERS_FOUND": "No offers",
       "OFFER_NOT_FOUND": "Offer not found",

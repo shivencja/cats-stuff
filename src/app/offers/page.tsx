@@ -1,9 +1,5 @@
-import React from "react";
+import OffersView from "@/views/OffersView/OffersView";
 
-export default function OfferDetailPage() {
-  return (
-    <div>
-      <h1>Szczegóły ofert</h1>
-    </div>
-  );
+export default async function OffersPage() {
+  return <OffersView />;
 }

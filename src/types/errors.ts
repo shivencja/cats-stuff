@@ -6,6 +6,7 @@ export interface ApiError {
 }
 
 export enum ApiErrorKey {
+  UNAUTHORIZED = "UNAUTHORIZED",
   UNKNOWN_API_ERROR = "UNKNOWN_API_ERROR",
   NO_OFFERS_FOUND = "NO_OFFERS_FOUND",
   OFFER_NOT_FOUND = "OFFER_NOT_FOUND",

@@ -1,6 +1,6 @@
 import { MultilingualObject } from "./langs";
 
-export interface Offer {
+export interface OfferDTO {
   id: number;
   name: MultilingualObject<string>;
   description: MultilingualObject<string>;

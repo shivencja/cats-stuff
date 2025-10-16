@@ -1,6 +1,6 @@
 import { kv } from "@vercel/kv";
 import { NextResponse } from "next/server";
-import { Offer } from "@/types/offers";
+import { OfferDTO } from "@/types/offers";
 import { ApiErrorKey } from "@/types/errors";
 
 export async function GET(
@@ -11,7 +11,7 @@ export async function GET(
 ) {
   const { id } = await context.params;
   try {
-    const allOffers = await kv.get<Offer[]>("offers");
+    const allOffers = await kv.get<OfferDTO[]>("offers");
 
     if (!allOffers) {
       return NextResponse.json(

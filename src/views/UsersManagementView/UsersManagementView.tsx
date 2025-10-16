@@ -1,9 +1,8 @@
 "use client";
 
 import { LanguageSwitcher } from "@/components/LanguageSwitcher/LanguageSwitcher";
-import { OfferDTO } from "@/types/offers";
 import { useI18n } from "@/hooks/i18n";
-import { useOffers } from "@/queries/offers/hooks";
+import { useUsers } from "@/queries/offers/hooks";
 import {
   Typography,
   Box,
@@ -13,13 +12,12 @@ import {
   CircularProgress,
   Alert,
 } from "@mui/material";
-import Translated from "@/components/Translated/Translated";
-import Price from "@/components/Price/Price";
+import { UserDTO } from "@/types/users";
 
-export default function OffersView() {
+export default function UsersManagementView() {
   const { t } = useI18n();
 
-  const { data: offers, isLoading, error } = useOffers();
+  const { data: users, isLoading, error } = useUsers();
 
   if (isLoading) {
     return <CircularProgress />;
@@ -32,18 +30,15 @@ export default function OffersView() {
   return (
     <Box sx={{ p: 4 }}>
       <Typography variant="h4" gutterBottom>
-        {t("offersView.title")}
+        Users
       </Typography>
       <LanguageSwitcher />
 
-      {offers && offers.length > 0 ? (
+      {users && users.length > 0 ? (
         <List>
-          {offers.map((offer: OfferDTO) => (
-            <ListItem key={offer.id}>
-              <ListItemText
-                primary={<Translated text={offer.name} />}
-                secondary={<Price value={offer.price} />}
-              />
+          {users.map((user: UserDTO) => (
+            <ListItem key={user.id}>
+              <ListItemText primary={user.email} secondary={user.role} />
             </ListItem>
           ))}
         </List>

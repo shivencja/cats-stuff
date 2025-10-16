@@ -31,6 +31,7 @@
   },
   "errors": {
     "apiErrors": {
+      "UNAUTHORIZED": "Brak autoryzacji",
       "UNKNOWN_API_ERROR": "Nieznany błąd API",
       "NO_OFFERS_FOUND": "Brak ofert",
       "OFFER_NOT_FOUND": "Nie znaleziono oferty",

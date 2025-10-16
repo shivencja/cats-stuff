@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
+import { UserRole } from "@/types/users";
 
 /**
  * A component that displays the navigation bar with links based on authentication status
  */
 export default function Navbar() {
   const { data: session, status } = useSession();
+  const user = session?.user;
 
   return (
     <nav>
@@ -28,6 +30,10 @@ export default function Navbar() {
           {status === "authenticated" && (
             <>
               <Link href="/profile">Profil</Link>
+              {user?.role === UserRole.ADMIN && (
+                <Link href="/users">User management</Link>
+              )}
+
               <span>({session.user?.email})</span>
               <button onClick={() => signOut({ callbackUrl: "/" })}>
                 Wyloguj się
