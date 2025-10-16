@@ -1,20 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
-
-function generateNonce() {
-  return crypto.randomUUID().replace(/-/g, "").slice(0, 16);
-}
-
-const protectedPaths = ["/profile"];
+import { styleHashes } from "./utils/styleHashesForCSP";
+import generateNonce from "./utils/generateNonce";
+import isPathProtected from "./utils/isPathProtected";
 
 export async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
 
-  const isPathProtected = protectedPaths.some((path) =>
-    pathname.startsWith(path)
-  );
-
-  if (isPathProtected) {
+  if (isPathProtected(pathname)) {
     const token = await getToken({ req, secret: process.env.AUTH_SECRET });
     if (!token) {
       const loginUrl = new URL("/login", req.url);
@@ -35,6 +28,13 @@ export async function middleware(req: NextRequest) {
 
   const isProduction = process.env.NODE_ENV === "production";
 
+  /*
+    The notistack library uses inline style="..." attributes,
+    which conflicts with Content Security Policy mechanism
+    To avoid using insecure 'unsafe-inline' I decided to add
+    noistack style hashes which resolve violating CSP directive
+    in a secure way
+  */
   const csp = `
     default-src 'self';
     script-src 'self' ${
@@ -42,7 +42,11 @@ export async function middleware(req: NextRequest) {
         ? `'nonce-${nonce}' 'strict-dynamic'`
         : `'unsafe-inline' 'unsafe-eval'`
     };
-    style-src 'self' ${isProduction ? `'nonce-${nonce}'` : `'unsafe-inline'`};
+    style-src 'self' ${
+      isProduction
+        ? `'nonce-${nonce}' 'unsafe-hashes' ${styleHashes}`
+        : `'unsafe-inline'`
+    };
     img-src 'self' blob: data:;
     font-src 'self';
     object-src 'none';
@@ -62,10 +66,10 @@ export async function middleware(req: NextRequest) {
 export const config = {
   matcher: [
     /*
-     * without
-     * - API paths
-     * - inside Next.js paths (_next/static, _next/image)
-     * - static files (favicon.ico)
+      without
+      - API paths
+      - inside Next.js paths (_next/static, _next/image)
+      - static files (favicon.ico)
      */
     "/((?!api|_next/static|_next/image|favicon.ico).*)",
   ],
