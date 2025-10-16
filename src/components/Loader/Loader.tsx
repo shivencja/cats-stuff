@@ -17,6 +17,9 @@ const styles = {
   },
 };
 
+/**
+ * A component that displays a loading spinner
+ */
 export function Loader({ sx }: LoaderProps) {
   return (
     <Box sx={{ ...styles.root, ...sx }}>

@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 
+/**
+ * A component that displays the navigation bar with links based on authentication status
+ */
 export default function Navbar() {
   const { data: session, status } = useSession();
 

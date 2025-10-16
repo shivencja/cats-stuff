@@ -2,6 +2,9 @@
 
 import { SnackbarProvider } from "notistack";
 
+/**
+ * A provider component that sets up notification context for the application
+ */
 export default function NotificationProvider({
   children,
 }: {

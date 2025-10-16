@@ -33,7 +33,9 @@ const loadTranslations = async (lang: Lang) => {
   i18n.translations[lang] = await response.json();
 };
 
-// Custom hook to initialize i18n and manage language state
+/**
+ * Hook to initialize and manage i18n state
+ */
 function useI18nInitializer() {
   const [lang, setLangState] = useState<Lang>("en");
   const [isInitialized, setIsInitialized] = useState(false);

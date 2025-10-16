@@ -6,6 +6,9 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "../styles/theme";
 import createEmotionCache from "../emotion-cache";
 
+/**
+ * A provider component that sets up the theme and emotion cache for the application
+ */
 export default function ThemeRegistry({
   children,
   nonce,

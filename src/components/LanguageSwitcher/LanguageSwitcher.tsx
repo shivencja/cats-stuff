@@ -12,6 +12,9 @@ type LanguageOption = {
   ariaLabel: string;
 };
 
+/**
+ * A component that allows users to switch between available languages
+ */
 export function LanguageSwitcher() {
   const { lang, setLang } = useSwitchLang();
   const { t } = useI18n();

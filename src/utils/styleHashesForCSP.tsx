@@ -1,3 +1,7 @@
+/**
+ * List of SHA-256 hashes for inline styles used in the
+ * application, for Content Security Policy (CSP)
+ */
 export const styleHashes = [
   "'sha256-MgsRAUZhy3FVdjFwZrwwZ/qadEFA2EcR6+vV9z8FZ8I='",
   "'sha256-si5pBc9ZTbJPJuSlvsWYQqsUTRah7R/LEGaggCYWWoo='",
