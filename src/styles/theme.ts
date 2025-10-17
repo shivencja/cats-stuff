@@ -9,6 +9,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "Arial, sans-serif",
+    caption: { color: "#555555" },
   },
 });
 

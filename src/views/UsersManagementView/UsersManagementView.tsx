@@ -1,6 +1,5 @@
 "use client";
 
-import { LanguageSwitcher } from "@/components/LanguageSwitcher/LanguageSwitcher";
 import { useI18n } from "@/hooks/i18n";
 import { useUsers } from "@/queries/offers/hooks";
 import {
@@ -32,7 +31,6 @@ export default function UsersManagementView() {
       <Typography variant="h4" gutterBottom>
         Users
       </Typography>
-      <LanguageSwitcher />
 
       {users && users.length > 0 ? (
         <List>

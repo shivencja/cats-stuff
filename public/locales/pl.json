@@ -27,6 +27,17 @@
       "label": "Wybór języka",
       "en": "Angielski",
       "pl": "Polski"
+    },
+    "navbar": {
+      "home": "Cat's stuff",
+      "offers": "Oferty",
+      "usersManagement": "Zarządzanie użytkownikami",
+      "login": "Zaloguj się",
+      "register": "Zarejestruj się",
+      "logout": "Wyloguj się"
+    },
+    "logo": {
+      "alt": "Logo"
     }
   },
   "errors": {

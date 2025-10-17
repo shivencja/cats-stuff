@@ -1,6 +1,5 @@
 "use client";
 
-import { LanguageSwitcher } from "@/components/LanguageSwitcher/LanguageSwitcher";
 import { OfferDTO } from "@/types/offers";
 import { useI18n } from "@/hooks/i18n";
 import { useOffers } from "@/queries/offers/hooks";
@@ -34,7 +33,6 @@ export default function OffersView() {
       <Typography variant="h4" gutterBottom>
         {t("offersView.title")}
       </Typography>
-      <LanguageSwitcher />
 
       {offers && offers.length > 0 ? (
         <List>
