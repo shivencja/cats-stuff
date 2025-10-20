@@ -29,7 +29,7 @@ const styles = {
     mr: 4,
   },
   iconButton: {
-    mr: 2,
+    mr: { xs: 0, md: 2 },
   },
   responsibleLinks: {
     ...layoutDesktop,

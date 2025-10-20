@@ -12,7 +12,7 @@ const avatarSrc = "/images/geometric-cat-portrait-stockcake.jpg";
 
 const styles = {
   avatarButton: {
-    ml: 2,
+    ml: { xs: 0, md: 2 },
   },
 };
 
