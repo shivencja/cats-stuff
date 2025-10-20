@@ -59,6 +59,10 @@ export const layoutAroundAligned = { alignContent: "space-around" };
 // grid layout
 export const layoutGrid = { display: "grid" };
 
+// responsive layouts
+export const layoutDesktop = { display: { xs: "none", md: "flex" } };
+export const layoutMobile = { display: { xs: "flex", md: "none" } };
+
 // utils
 export const ellipsis = {
   overflow: "hidden",

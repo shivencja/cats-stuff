@@ -1,52 +1,69 @@
 {
-  "commons": {
-    "localizedCurrency": "£"
-  },
-  "page": {
-    "title": "%{title} - Cat's stuff"
-  },
-  "offersView": {
-    "title": "Our offers",
-    "empty": "No offers available"
-  },
-  "notFoundView": {
-    "title": "Not found"
-  },
-  "errorView": {
-    "title": "Something went wrong!"
-  },
-  "globalErrorView": {
-    "title": "An unexpected error occurred"
-  },
   "buttons": {
     "backToMainPage": "Back to main page",
     "tryAgain": "Try again"
   },
+  "commons": {
+    "localizedCurrency": "£"
+  },
   "components": {
     "languageSwitcher": {
-      "label": "Language selection",
       "en": "English",
+      "label": "Language selection",
       "pl": "Polish"
-    },
-    "navbar": {
-      "home": "Cat's stuff",
-      "offers": "Offers",
-      "usersManagement": "User management",
-      "login": "Login",
-      "register": "Register",
-      "logout": "Logout"
     },
     "logo": {
       "alt": "Logo"
+    },
+    "navbar": {
+      "contact": "Contact",
+      "delivery": "Delivery",
+      "home": "Cat's stuff",
+      "login": "Login",
+      "logout": "Logout",
+      "offers": "Oferty",
+      "register": "Register",
+      "usersManagement": "User management"
+    }
+  },
+  "enums": {
+    "category": {
+      "BEDS": "Beds",
+      "BESTSELLERS": "Bestsellers",
+      "FOOD": "Food",
+      "HOUSES": "Houses",
+      "LITTER": "Litter",
+      "PROMO": "Promotions",
+      "SNACKS": "Snacks",
+      "TOYS": "Toys",
+      "TRAVEL": "Travel"
     }
   },
   "errors": {
     "apiErrors": {
-      "UNAUTHORIZED": "Unauthorized",
-      "UNKNOWN_API_ERROR": "Unknown API error",
+      "INTERNAL_SERVER_ERROR": "Internal Server Error",
       "NO_OFFERS_FOUND": "No offers",
       "OFFER_NOT_FOUND": "Offer not found",
-      "INTERNAL_SERVER_ERROR": "Internal Server Error"
+      "UNAUTHORIZED": "Unauthorized",
+      "UNKNOWN_API_ERROR": "Unknown API error"
+    }
+  },
+  "page": {
+    "title": "%{title} - Cat's stuff"
+  },
+  "views": {
+    "errorView": {
+      "title": "Something went wrong!"
+    },
+    "globalErrorView": {
+      "title": "An unexpected error occurred"
+    },
+    "notFoundView": {
+      "title": "Not found"
+    },
+    "offersView": {
+      "empty": "No offers available",
+      "title": "Our offers"
     }
   }
 }

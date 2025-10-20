@@ -8,10 +8,10 @@ import {
   List,
   ListItem,
   ListItemText,
-  CircularProgress,
   Alert,
 } from "@mui/material";
 import { UserDTO } from "@/types/users";
+import { Loader } from "@/components/Loader/Loader";
 
 export default function UsersManagementView() {
   const { t } = useI18n();
@@ -19,7 +19,7 @@ export default function UsersManagementView() {
   const { data: users, isLoading, error } = useUsers();
 
   if (isLoading) {
-    return <CircularProgress />;
+    return <Loader />;
   }
 
   if (error) {

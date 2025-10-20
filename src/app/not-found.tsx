@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function NotFoundPage() {
   const { t } = useI18n();
 
-  const title = t("notFoundView.title");
+  const title = t("views.notFoundView.title");
 
   return (
     <div>

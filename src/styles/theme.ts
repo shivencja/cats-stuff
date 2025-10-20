@@ -11,6 +11,15 @@ const theme = createTheme({
     fontFamily: "Arial, sans-serif",
     caption: { color: "#555555" },
   },
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          overflowX: "auto",
+        },
+      },
+    },
+  },
 });
 
 export default theme;

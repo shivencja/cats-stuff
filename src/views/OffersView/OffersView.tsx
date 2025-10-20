@@ -9,11 +9,11 @@ import {
   List,
   ListItem,
   ListItemText,
-  CircularProgress,
   Alert,
 } from "@mui/material";
 import Translated from "@/components/Translated/Translated";
 import Price from "@/components/Price/Price";
+import { Loader } from "@/components/Loader/Loader";
 
 export default function OffersView() {
   const { t } = useI18n();
@@ -21,7 +21,7 @@ export default function OffersView() {
   const { data: offers, isLoading, error } = useOffers();
 
   if (isLoading) {
-    return <CircularProgress />;
+    return <Loader />;
   }
 
   if (error) {
@@ -31,7 +31,7 @@ export default function OffersView() {
   return (
     <Box sx={{ p: 4 }}>
       <Typography variant="h4" gutterBottom>
-        {t("offersView.title")}
+        {t("views.offersView.title")}
       </Typography>
 
       {offers && offers.length > 0 ? (

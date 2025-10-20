@@ -36,7 +36,7 @@ export default function GlobalErrorPage({
   return (
     <html>
       <head>
-        <title>{t.globalErrorView.title}</title>
+        <title>{t.views.globalErrorView.title}</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </head>
       <body>
@@ -44,7 +44,7 @@ export default function GlobalErrorPage({
           <CssBaseline />
           <Box>
             <Typography variant="h2" component="h1" gutterBottom>
-              {t.globalErrorView.title}
+              {t.views.globalErrorView.title}
             </Typography>
             <Link href="/">
               <Button variant="contained">{t.buttons.backToMainPage}</Button>

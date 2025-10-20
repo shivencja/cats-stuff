@@ -1,14 +1,23 @@
-"use client";
-
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher/LanguageSwitcher";
-import { AppBar, Toolbar, Typography } from "@mui/material";
-import React from "react";
+import {
+  AppBar,
+  Container,
+  IconButton,
+  Toolbar,
+  Typography,
+  Box,
+} from "@mui/material";
+import React, { useMemo } from "react";
 import { useI18n } from "@/hooks/i18n";
 import Logo from "../Logo/Logo";
-import { layout, layoutCenter } from "@/styles/mixins";
+import { layout, layoutCenter, layoutDesktop } from "@/styles/mixins";
 import ProfileMenu from "./components/ProfileMenu/ProfleMenu";
+import ShoppingBasketTwoToneIcon from "@mui/icons-material/ShoppingBasketTwoTone";
+import EmailTwoToneIcon from "@mui/icons-material/EmailTwoTone";
+import MobileOptionsMenu from "./components/MobileOptionsMenu/MobileOptionsMenu";
+import { NavLink } from "@/types/links";
 
 const styles = {
   home: {
@@ -17,9 +26,28 @@ const styles = {
     ...layoutCenter,
   },
   menuLink: {
-    marginRight: 4,
+    mr: 4,
+  },
+  iconButton: {
+    mr: 2,
+  },
+  responsibleLinks: {
+    ...layoutDesktop,
   },
 };
+
+const NavLinkComponent = React.memo(function NavLink({ href, label }: NavLink) {
+  return (
+    <Typography
+      variant="body1"
+      component={Link}
+      href={href}
+      sx={styles.menuLink}
+    >
+      {label}
+    </Typography>
+  );
+});
 
 /**
  * Navbar component displayed at the top of the application
@@ -29,50 +57,65 @@ export default function Navbar() {
   const { t } = useI18n();
   const isAuthenticated = status === "authenticated";
 
-  if (status === "loading") {
-    return null;
-  }
+  const navLinks = useMemo(
+    () => [
+      { href: "/offers", label: t("components.navbar.offers") },
+      { href: "/delivery", label: t("components.navbar.delivery") },
+      { href: "/contact", label: t("components.navbar.contact") },
+    ],
+    [t]
+  );
+
+  const authLinks = useMemo(
+    () => [
+      { href: "/login", label: t("components.navbar.login") },
+      { href: "/register", label: t("components.navbar.register") },
+    ],
+    [t]
+  );
 
   return (
     <AppBar position="static">
-      <Toolbar>
-        <Link href="/" style={styles.home}>
-          <Logo />
-        </Link>
-        <Typography
-          variant="body1"
-          component={Link}
-          href="/offers"
-          sx={styles.menuLink}
-        >
-          {t("components.navbar.offers")}
-        </Typography>
+      <Container>
+        <Toolbar>
+          <Link href="/" style={styles.home}>
+            <Logo />
+          </Link>
 
-        {!isAuthenticated && (
-          <>
-            <Typography
-              variant="body1"
-              component={Link}
-              href="/login"
-              sx={styles.menuLink}
-            >
-              {t("components.navbar.login")}
-            </Typography>
-            <Typography
-              variant="body1"
-              component={Link}
-              href="/register"
-              sx={styles.menuLink}
-            >
-              {t("components.navbar.register")}
-            </Typography>
-          </>
-        )}
+          <Box sx={styles.responsibleLinks}>
+            {navLinks.map(({ label, href }) => (
+              <NavLinkComponent key={label} label={label} href={href} />
+            ))}
+          </Box>
 
-        <LanguageSwitcher />
+          <MobileOptionsMenu navLinks={navLinks} />
 
-        {isAuthenticated && session.user && <ProfileMenu user={session.user} />}
-      </Toolbar>
+          {!isAuthenticated && (
+            <>
+              {authLinks.map(({ label, href }) => (
+                <NavLinkComponent key={label} label={label} href={href} />
+              ))}
+            </>
+          )}
+
+          {isAuthenticated && (
+            <>
+              <IconButton sx={styles.iconButton}>
+                <ShoppingBasketTwoToneIcon />
+              </IconButton>
+              <IconButton sx={styles.iconButton}>
+                <EmailTwoToneIcon />
+              </IconButton>
+            </>
+          )}
+
+          <LanguageSwitcher />
+
+          {isAuthenticated && session.user && (
+            <ProfileMenu user={session.user} />
+          )}
+        </Toolbar>
+      </Container>
     </AppBar>
   );
 }

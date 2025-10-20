@@ -14,7 +14,7 @@ export default function ErrorPage({
 }) {
   const { t } = useI18n();
 
-  const title = t("errorView.title");
+  const title = t("views.errorView.title");
 
   useEffect(() => {
     console.error(error);
